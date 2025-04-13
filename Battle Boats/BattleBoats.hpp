@@ -33,6 +33,11 @@ public:
     void playGame();
     void displayPlayerGridOnly();
 
+    void playPvPGame();
+
+    void displayGrids(const std::vector<std::vector<char>>& player, const std::vector<std::vector<char>>& guesses);
+    void displayPlayerGridOnly(const std::vector<std::vector<char>>& grid);
+
 
     bool isUsingTwoByOneBoats() const { return useTwoByOneBoats; }
     bool isUsingCustomBoatSymbol() const { return useCustomBoatSymbol; }
