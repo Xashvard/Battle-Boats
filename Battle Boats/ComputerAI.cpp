@@ -2,6 +2,7 @@
 #include "ComputerAI.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
 ComputerAI::ComputerAI(AIType type, std::vector<std::vector<char>>& grid, std::vector<Position>& boats)
     : aiType(type), playerGrid(grid), playerBoats(boats) {
@@ -10,7 +11,6 @@ ComputerAI::ComputerAI(AIType type, std::vector<std::vector<char>>& grid, std::v
 bool ComputerAI::makeMove() {
     Position attackPos;
 
-    // Get next position based on AI type
     if (aiType == RANDOM) {
         do {
             attackPos.row = rand() % playerGrid.size();
@@ -42,7 +42,7 @@ bool ComputerAI::makeMove() {
             }
             rowCursor = 0;
         }
-    }
+    } 
 
 Attack:
     std::cout << "The computer chose " << char('A' + attackPos.row) << attackPos.col + 1 << ". ";
@@ -58,7 +58,7 @@ Attack:
                 std::cout << "|                                      |\n";
                 std::cout << "========================================\n";
             }
-            return playerBoats.empty(); // true if game over
+            return playerBoats.empty();
         }
     }
 
@@ -66,3 +66,4 @@ Attack:
     std::cout << "They missed!\n";
     return false;
 }
+

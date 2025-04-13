@@ -31,6 +31,20 @@ public:
     bool computerTurn();
     BattleBoats();
     void playGame();
+    void displayPlayerGridOnly();
+
+
+    bool isUsingTwoByOneBoats() const { return useTwoByOneBoats; }
+    bool isUsingCustomBoatSymbol() const { return useCustomBoatSymbol; }
+    const std::vector<std::vector<char>>& getComputerGrid() const { return computerGrid; }
+
+
+    void setupForTesting(bool useTwoByOne) {
+        useTwoByOneBoats = useTwoByOne;
+        useCustomBoatSymbol = false;
+    }
+
+
 };
 
 #endif
